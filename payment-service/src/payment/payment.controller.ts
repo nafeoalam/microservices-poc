@@ -1,4 +1,13 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Post, Body } from '@nestjs/common';
+import { PaymentService } from './payment.service';
 
 @Controller('payment')
-export class PaymentController {}
+export class PaymentController {
+  constructor(private readonly paymentService: PaymentService) {}
+
+  @Post()
+  async makePayment(@Body() body: { productId: number }) {
+    // Logic to process payment
+    return { success: true };
+  }
+}
