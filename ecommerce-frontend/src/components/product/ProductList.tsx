@@ -31,7 +31,8 @@ const ProductList = () => {
 
   const handleMakePayment = async () => {
     if (selectedProduct) {
-      // await paymentAxiosInstance.post(`/payment`, { productId: selectedProduct.id });
+      const response = await paymentAxiosInstance.post(`/payment`, { productId: selectedProduct.id });
+      console.log(response);
       // await inventoryAxiosInstance.post(`/inventory/update`, { productId: selectedProduct.id });
       setSelectedProduct(null);
     }

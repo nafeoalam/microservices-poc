@@ -8,6 +8,7 @@ export class PaymentController {
   @Post()
   async makePayment(@Body() body: { productId: number }) {
     // Logic to process payment
+    console.log(body);
     return { success: true };
   }
 }

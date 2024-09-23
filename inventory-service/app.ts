@@ -1,6 +1,5 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import { json } from 'body-parser';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import inventoryRoutes from './routes/inventory.routes';
@@ -14,13 +13,10 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 
 // Middleware
-app.use(json());
+app.use(express.json());
 
 // MongoDB connection
-mongoose.connect(process.env.MONGODB_URI as string, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-} as mongoose.ConnectOptions)
+mongoose.connect(process.env.MONGODB_URI as string)
 .then(() => console.log('MongoDB connected'))
 .catch(err => console.error('MongoDB connection error:', err));
 
@@ -28,7 +24,7 @@ mongoose.connect(process.env.MONGODB_URI as string, {
 app.use('/api/inventory', inventoryRoutes);
 
 // Error handling middleware
-app.use((err, req, res, next) => {
+app.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {
   console.error(err.stack);
   res.status(500).send('Something broke!');
 });
