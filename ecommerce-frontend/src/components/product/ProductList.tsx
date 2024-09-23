@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import productAxiosInstance from '../../services/productService';
+import paymentAxiosInstance from '../../services/paymentService';
+import inventoryAxiosInstance from '../../services/inventoryService';
 
 interface Product {
   id: number;
@@ -13,7 +15,7 @@ const ProductList = () => {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const response = await axios.get(`${process.env.PRODUCTS_URL}/products`); // Append path
+      const response = await productAxiosInstance.get(`/products`);
       setProducts(response.data);
     };
     fetchProducts();
@@ -26,11 +28,11 @@ const ProductList = () => {
   const handleCancelOrder = () => {
     setSelectedProduct(null);
   };
+
   const handleMakePayment = async () => {
     if (selectedProduct) {
-      await axios.post(`${process.env.PAYMENT_URL}/payment`, { productId: selectedProduct.id }); // Append path
-      // Optionally, update inventory here
-      await axios.post(`${process.env.INVENTORY_URL}/inventory/update`, { productId: selectedProduct.id }); // Append path
+      // await paymentAxiosInstance.post(`/payment`, { productId: selectedProduct.id });
+      // await inventoryAxiosInstance.post(`/inventory/update`, { productId: selectedProduct.id });
       setSelectedProduct(null);
     }
   };

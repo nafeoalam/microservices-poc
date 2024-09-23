@@ -2,12 +2,16 @@ import express from 'express';
 import mongoose from 'mongoose';
 import { json } from 'body-parser';
 import dotenv from 'dotenv';
+import cors from 'cors';
 import inventoryRoutes from './routes/inventory.routes';
 
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Enable CORS
+app.use(cors());
 
 // Middleware
 app.use(json());
