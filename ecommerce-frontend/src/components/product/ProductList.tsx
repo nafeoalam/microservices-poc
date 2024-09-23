@@ -13,7 +13,7 @@ const ProductList = () => {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const response = await axios.get('http://localhost:3001/products'); // Adjust the URL as needed
+      const response = await axios.get(`${process.env.PRODUCTS_URL}/products`); // Append path
       setProducts(response.data);
     };
     fetchProducts();
@@ -28,9 +28,9 @@ const ProductList = () => {
   };
   const handleMakePayment = async () => {
     if (selectedProduct) {
-      await axios.post('http://localhost:3002/payment', { productId: selectedProduct.id }); // Adjust the URL as needed
+      await axios.post(`${process.env.PAYMENT_URL}/payment`, { productId: selectedProduct.id }); // Append path
       // Optionally, update inventory here
-      await axios.post('http://localhost:3003/inventory/update', { productId: selectedProduct.id }); // Adjust the URL as needed
+      await axios.post(`${process.env.INVENTORY_URL}/inventory/update`, { productId: selectedProduct.id }); // Append path
       setSelectedProduct(null);
     }
   };
