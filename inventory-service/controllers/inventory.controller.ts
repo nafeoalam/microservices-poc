@@ -23,7 +23,8 @@ class InventoryController {
 
   static async updateItem(req: Request, res: Response) {
     try {
-      console.log(req.body, "updateItem");
+      console.log(req.params.id, "SUCCESS params");
+      console.log(req.body, "SUCCESS updateItem");
       // const updatedItem = await Inventory.findByIdAndUpdate(req.params.id, req.body, { new: true });
       // if (!updatedItem) return res.status(404).json({ message: 'Item not found' });
       res.status(200).json({ message: "Item updated" });
