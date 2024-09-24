@@ -7,7 +7,7 @@ import inventoryRoutes from './routes/inventory.routes';
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3003;
 
 // Enable CORS
 app.use(cors());
@@ -15,10 +15,10 @@ app.use(cors());
 // Middleware
 app.use(express.json());
 
-// MongoDB connection
-mongoose.connect(process.env.MONGODB_URI as string)
-.then(() => console.log('MongoDB connected'))
-.catch(err => console.error('MongoDB connection error:', err));
+// TODO: MongoDB connection
+// mongoose.connect(process.env.MONGODB_URI as string)
+// .then(() => console.log('MongoDB connected'))
+// .catch(err => console.error('MongoDB connection error:', err));
 
 // Routes
 app.use('/api/inventory', inventoryRoutes);
@@ -31,5 +31,5 @@ app.use((err: Error, req: express.Request, res: express.Response, next: express.
 
 // Start the server
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`INVENTORY SERVICE is running on http://localhost:${PORT}`);
 });

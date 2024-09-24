@@ -19,8 +19,6 @@ export class RabbitMQService implements OnModuleInit, OnModuleDestroy {
 
   async sendMessage(queue: string, msg: Object) {
     const messageBuffer = Buffer.from(JSON.stringify(msg));
-
-    console.log({messageBuffer})
     this.channel.sendToQueue(queue, messageBuffer);
   }
 }

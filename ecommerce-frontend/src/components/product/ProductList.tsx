@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import productAxiosInstance from '../../services/productService';
-import paymentAxiosInstance from '../../services/paymentService';
-import inventoryAxiosInstance from '../../services/inventoryService';
+import { useEffect, useState } from "react";
+import productAxiosInstance from "../../services/productService";
+import paymentAxiosInstance from "../../services/paymentService";
 
 interface Product {
   id: number;
@@ -31,9 +30,9 @@ const ProductList = () => {
 
   const handleMakePayment = async () => {
     if (selectedProduct) {
-      const response = await paymentAxiosInstance.post(`/payment`, { productId: selectedProduct.id });
-      console.log(response);
-      // await inventoryAxiosInstance.post(`/inventory/update`, { productId: selectedProduct.id });
+      await paymentAxiosInstance.post(`/payment`, {
+        productId: selectedProduct.id,
+      });
       setSelectedProduct(null);
     }
   };
