@@ -30,6 +30,14 @@
 - **CORS**: Version ^2.8.5 for enabling Cross-Origin Resource Sharing
 - **dotenv**: Version ^16.4.5 for environment variable management
 
+# Some Important Commands
+
+
+  ```bash
+  lsof -i :<PORT_NO>
+  kill 4977<PID>
+  ./macos-start-services.sh 
+  ```
 
 
 # RabbitMQ Implementation Steps
