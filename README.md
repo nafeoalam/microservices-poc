@@ -24,6 +24,7 @@
 ## Testing
 - **Jest**: Version ^29.5.0 for unit and integration testing
 - **Supertest**: Version ^6.3.3 for testing HTTP requests
+- **Pactum**: Upcoming...
 
 ## Development Tools
 - **Docker**: Used for containerization of RabbitMQ
