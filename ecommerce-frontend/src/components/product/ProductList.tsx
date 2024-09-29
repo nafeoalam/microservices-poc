@@ -1,16 +1,23 @@
 import { useEffect, useState } from "react";
-import productAxiosInstance from "../../services/productService";
-import paymentAxiosInstance from "../../services/paymentService";
+import productAxiosInstance from "@/services/productService";
+import paymentAxiosInstance from "@/services/paymentService";
+import ProductStatus from "@/enums/ProductStatus";
 
-interface Product {
+interface ProductDetails {
+  description?: string; // Added a question mark (?) to the description property in ProductDetails to make it optional.
+}
+
+type Product = {
+  // Intersection type
   id: number;
   name: string;
   price: number;
-}
+  status: ProductStatus;
+} & Partial<ProductDetails>; // Used Partial<ProductDetails> in the Product type to make all properties of ProductDetails optional.
 
 const ProductList = () => {
   const [products, setProducts] = useState<Product[]>([]);
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null); //Union type
 
   useEffect(() => {
     const fetchProducts = async () => {
