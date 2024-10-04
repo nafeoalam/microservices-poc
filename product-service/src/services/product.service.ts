@@ -32,4 +32,10 @@ export class ProductService {
   findAll(): Product[] {
     return this.products;
   }
+
+  findById<T>(id: number): T {
+    // Implementation to find a product by ID
+    const product = this.products.find(p => p.id === id);
+    return product as T;
+  }
 }
