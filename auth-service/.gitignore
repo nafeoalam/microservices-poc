@@ -42,6 +42,10 @@ lerna-debug.log*
 .env.production.local
 .env.local
 
+# Security - JWT RSA Keys (auto-generated)
+src/keys/private.pem
+src/keys/public.pem
+
 # temp directory
 .temp
 .tmp
