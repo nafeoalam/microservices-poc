@@ -6,7 +6,7 @@ import {
   UpdateDateColumn,
   ManyToMany,
 } from 'typeorm';
-import { UserEntity } from '@/users/entities/user.entity/user.entity';
+import { UserEntity } from '@/users/entities/user.entity';
 
 export enum RoleType {
   SUPER_ADMIN = 'super_admin',

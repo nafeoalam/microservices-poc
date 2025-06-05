@@ -7,7 +7,7 @@ import {
   ManyToMany,
   JoinTable,
 } from 'typeorm';
-import { RoleEntity } from '@/roles/entities/role.entity/role.entity';
+import { RoleEntity } from '@/roles/entities/role.entity';
 
 export enum AuthProvider {
   LOCAL = 'local',
