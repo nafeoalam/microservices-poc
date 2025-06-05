@@ -1,31 +1,46 @@
 {
-  "name": "@microservices-poc/auth-client",
+  "name": "@nafeoalam/ms-auth-types",
   "version": "1.0.0",
-  "description": "OpenAPI client for @microservices-poc/auth-client",
-  "author": "OpenAPI-Generator Contributors",
+  "description": "TypeScript types and API client for Auth Service microservice",
+  "author": "Nafeo Alam",
   "repository": {
     "type": "git",
-    "url": "https://github.com/GIT_USER_ID/GIT_REPO_ID.git"
+    "url": "https://github.com/nafeoalam/microservices-poc.git",
+    "directory": "shared/generated-clients/auth-client"
   },
   "keywords": [
-    "axios",
+    "auth",
+    "microservices",
     "typescript",
+    "types",
+    "api-client",
     "openapi-client",
-    "openapi-generator",
-    "@microservices-poc/auth-client"
+    "axios"
   ],
-  "license": "Unlicense",
+  "license": "MIT",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
+  "files": [
+    "dist/**/*",
+    "README.md"
+  ],
   "scripts": {
     "build": "tsc",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run build",
+    "clean": "rm -rf dist"
   },
   "dependencies": {
     "axios": "^1.6.1"
   },
   "devDependencies": {
-    "@types/node": "12.11.5 - 12.20.42",
-    "typescript": "^4.0 || ^5.0"
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  },
+  "peerDependencies": {
+    "axios": "^1.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   }
 }

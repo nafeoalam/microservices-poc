@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import productAxiosInstance from "@/services/productService";
 import paymentAxiosInstance from "@/services/paymentService";
 import ProductStatus from "@/enums/ProductStatus";
+import { LoginDto, RegisterDto } from "@nafeoalam/ms-auth-types";
 
 interface ProductDetails {
   description?: string; // Added a question mark (?) to the description property in ProductDetails to make it optional.
@@ -18,6 +19,11 @@ type Product = {
 const ProductList = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null); //Union type
+
+  const loginDto: LoginDto = {
+    email: "test@test.com",
+    password: "test",
+  };
 
   useEffect(() => {
     const fetchProducts = async () => {
