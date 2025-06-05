@@ -51,7 +51,11 @@ export class LoginResponseDto {
       email: { type: 'string', description: 'User email address' },
       firstName: { type: 'string', description: 'User first name' },
       lastName: { type: 'string', description: 'User last name' },
-      roles: { type: 'array', description: 'User roles' },
+      roles: {
+        type: 'array',
+        items: { type: 'string' },
+        description: 'User roles',
+      },
     },
   })
   user: {
@@ -61,7 +65,6 @@ export class LoginResponseDto {
     lastName: string;
     roles: string[];
   };
-
   @ApiProperty({
     description: 'Response message',
     example: 'Login successful',
